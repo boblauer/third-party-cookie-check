@@ -1,0 +1,10 @@
+<body>
+<script>
+  (function() {
+      if (!window.parent) return;
+      var msg = /s=1/.test(document.cookie) ? '3pc.supported' : '3pc.unsupported';
+      window.parent.postMessage(msg, '*');
+      }
+  })();
+</script>
+</body>
