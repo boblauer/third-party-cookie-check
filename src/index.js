@@ -20,7 +20,7 @@
         function listen(event) {
           if (event.data === '3pc.supported' || event.data === '3pc.unsupported') {
             supported = event.data === '3pc.supported';
-            resolve(supported);
+            resolve({ supported, timedOut: false });
             document.body.removeChild(frame);
             window.removeEventListener('message', listen);
           }
@@ -31,7 +31,7 @@
       setTimeout(function() {
         if (supported === null) {
           supported = false;
-          resolve(false);
+          resolve({ supported, timedOut: true });
           document.body.removeChild(frame);
         }
       }, 1e3);

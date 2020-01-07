@@ -17,5 +17,6 @@ npm install third-party-cookie-check
 ```
 import cookieCheck from 'third-party-cookie-check';
 
-const thirdPartyCookiesSupported = await cookieCheck();
+// If the check takes > 1 second, supported will be false and timedOut will be true
+const { supported, timedOut } = await cookieCheck();
 ```
