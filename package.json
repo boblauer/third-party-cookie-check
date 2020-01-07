@@ -1,6 +1,6 @@
 {
   "name": "third-party-cookie-check",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Check if the browser supports third-party cookies.",
   "main": "src/index.js",
   "scripts": {
