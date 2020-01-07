@@ -17,10 +17,13 @@
 
       window.addEventListener(
         'message',
-        function(event) {
-          supported = event.data === '3pc.supported';
-          resolve(supported);
-          document.body.removeChild(frame);
+        function listen(event) {
+          if (event.data === '3pc.supported' || event.data === '3pc.unsupported') {
+            supported = event.data === '3pc.supported';
+            resolve(supported);
+            document.body.removeChild(frame);
+            window.removeEventListener('message', listen);
+          }
         },
         false
       );
